@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EasyService.Models.SubCategory>
+
+@{
+    ViewBag.Title = "ListSubCategory";
+    Layout = "~/Views/Admin/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>SubCategory List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddSubCategory")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Sl.No")
+        </th>
+        <th>
+            @Html.DisplayName("Category")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+    @{ int counter = 0;}
+    @foreach (var item in Model)
+    {
+         counter++; 
+<tr>
+    <td>
+        @counter.
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.ActionLink(" ", "EditSubCategory", new { id = item.Id }, new { @class = "fa fa-pencil" }) |
+        @*@Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
+        @Html.ActionLink(" ", "DeleteSubCategory", new { id = item.Id }, new { @class = " fa fa-trash-o", onclick = "return confirm('Are you sure you wish to delete this record?');" })
+    </td>
+</tr>
+    }
+
+</table>

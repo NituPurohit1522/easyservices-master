@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EasyService.Models.VendorListing>
+
+@{
+    ViewBag.Title = "VendorListings";
+    Layout = "~/Views/User/Shared/_UserLayoutPage.cshtml";
+}
+
+<h2>Services</h2>
+
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="http://via.placeholder.com/350x250" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.Title</h5>
+                <p class="card-text">
+                    @item.Description
+                </p>
+                <p class="card-text">
+                    Price : @item.Price
+                </p>
+                <a href="User/AddtoCart?Id=@item.Id" class="btn btn-round btn-warning">
+                    Add to Cart
+                </a>                
+            </div>
+        </div>
+    </div>
+       
+
+        @*<div class="col-md-4">
+                <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                    <div class="card-header"></div>
+                    <a href="/User/ListSubCategories?Id=@item.Id">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">
+                                @item.Title
+                            </h5>
+                        </div>
+                    </a>
+                </div>
+            </div>*@
+
+
+
+    }
+
+</div>
+
+
+
